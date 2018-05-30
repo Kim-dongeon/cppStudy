@@ -23,14 +23,19 @@ private:
 	VideoCapture cap;
 	Mat kernel;
 	vector <vector<Point>> contours;
-	vector <Vec4i> hierarchy;
+	vector <Vec4i> hierarchy;	
 	
-	//vector<vector<Point> > contours_poly;
-	//vector<Rect> boundRect;
-	//vector<Rect> boundRect2;
-
 	double ratio;
-	int refinery_count;
+	int rowBound_t;
+	int rowBound_b;
+	int rowBound_m ;
+	int colBound;
+	int colBound_m;
+	int colBound_r;
+	int colBound_l;
+	int rows; //frame.rows
+	int cols; //frame.cols
+	
 	
 public:
 	MyVideo();
@@ -52,5 +57,8 @@ public:
 
 	void detect();
 	void Brightness(int n);
-	void histEqual();
+	void drawBolck();
+	void divideBlock();
+	void imageProcessing();
+
 };

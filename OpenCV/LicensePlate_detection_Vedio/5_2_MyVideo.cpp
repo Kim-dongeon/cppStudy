@@ -8,21 +8,22 @@ int main()
 	{	
 		myV->capToFrame();
 	//	myV->getVideoSize();
-	//	myV->histEqual();
-		myV->Brightness(50);
+	
+		//myV->Brightness(50);
 		if (myV->isFrameEmpty() == true) break;
 		cnt++;
-		cout << "Frame : " << cnt << endl;
-		//myV->frame2Gray();
+		cout << "Frame : " << cnt << endl;		
 		
 		myV->frame2Bin();
-		//myV->topHat(myV->getFrameB());
-		
+	//	myV->topHat(myV->getFrameB());
+		myV->imageProcessing();
+		myV->divideBlock();
+		//myV->drawBolck();
 		//myV->drawRectangle(myV->getFrame(),myV->getWidth(), myV->getHeight(), 30, 30, RED, 4);
 		myV->detect();
 		imshow("Frame",myV->getFrame());
 		
-		char c = (char)waitKey(1);
+		char c = (char)waitKey(0);
 		if (c == 27) break;
 	}
 	delete myV;
